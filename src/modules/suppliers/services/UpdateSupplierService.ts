@@ -72,8 +72,6 @@ class UpdateSupplierService {
     updateSupplier.city = city || updateSupplier.city;
     updateSupplier.address = address || updateSupplier.address;
     updateSupplier.cep = cep || updateSupplier.cep;
-    
-    await this.supplierRepository.merger(updateSupplier);
 
     await this.supplierRepository.merge(updateSupplier);
 

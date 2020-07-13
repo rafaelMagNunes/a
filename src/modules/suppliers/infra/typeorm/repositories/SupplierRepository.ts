@@ -145,10 +145,27 @@ class SupplierRepository implements ISupplierRepository {
     address,
     user_id,
   }: ICreateSupplierDTO): Promise<Supplier> {
+    if (cnpj) {
+      const newSupplier = this.ormRespository.create({
+        name,
+        email,
+        cnpj,
+        phone,
+        cep,
+        state,
+        city,
+        address,
+        user_id,
+      });
+
+      await this.ormRespository.save(newSupplier);
+
+      return newSupplier;
+    }
+
     const newSupplier = this.ormRespository.create({
       name,
       email,
-      cnpj,
       phone,
       cep,
       state,

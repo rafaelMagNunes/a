@@ -20,25 +20,25 @@ class Supplier {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   phone: string;
 
-  @Column()
+  @Column({ nullable: true })
   cnpj: string;
 
-  @Column()
+  @Column({ nullable: true })
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
   cep: string;
 
-  @Column()
+  @Column({ nullable: true })
   state: string;
 
-  @Column()
+  @Column({ nullable: true })
   city: string;
 
-  @Column()
+  @Column({ nullable: true })
   address: string;
 
   @Column()
