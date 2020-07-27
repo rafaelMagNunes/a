@@ -93,6 +93,24 @@ class ItensRepository implements IItensRepository {
       relations: ['supplier'],
     });
 
+    if (findName.length === 0) {
+      const itensSearched: Iten[] = [];
+      const findSupplier = await this.ormRespository.find({
+        relations: ['supplier'],
+        where: {
+          construction_id,
+        },
+      });
+
+      findSupplier.forEach(iten => {
+        if (iten.supplier.name.match(word)) {
+          itensSearched.push(iten);
+        }
+      });
+
+      return itensSearched || undefined;
+    }
+
     return findName || undefined;
   }
 
