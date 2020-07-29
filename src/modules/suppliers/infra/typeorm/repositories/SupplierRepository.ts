@@ -69,7 +69,7 @@ class SupplierRepository implements ISupplierRepository {
         where: { name: Like(`%${word}%`), user_id },
       });
 
-      if (findCNPJ.length === 0) {
+      if (findName.length === 0) {
         const findPhone = await this.ormRespository.find({
           where: { phone: Like(`%${word}%`), user_id },
         });
